@@ -7,7 +7,7 @@ Built-By: root
 Build-Jdk: 1.7.0_79
 Specification-Vendor: DuraSpace
 Specification-Title: DSpace JSP-UI :: Local Customizations
-Created-By: Apache Maven 3.3.3
+Created-By: Apache Maven 3.3.9
 Specification-Version: 5.4
 Archiver-Version: Plexus Archiver
 

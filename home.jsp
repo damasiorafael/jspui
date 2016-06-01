@@ -60,10 +60,6 @@
 
 <dspace:layout locbar="nolink" titlekey="jsp.home.title" feedData="<%= feedData %>">
 
-	<div class="jumbotron">
-        <%= topNews %>
-	</div>
-
 <div class="row">
 <%
 if (submissions != null && submissions.count() > 0)
@@ -153,66 +149,66 @@ if (submissions != null && submissions.count() > 0)
 <%
 }
 %>
-<div class="col-md-4">
-    <%= sideNews %>
-</div>
+
 </div>
 <div class="container row">
 <%
-if (communities != null && communities.length != 0)
-{
+	if (communities != null && communities.length != 0)
+	{
 %>
-	<div class="col-md-4">		
-               <h3><fmt:message key="jsp.home.com1"/></h3>
-                <p><fmt:message key="jsp.home.com2"/></p>
-				<div class="list-group">
+		<div class="col-md-9 comuns-kroton">
+			<h3><fmt:message key="jsp.home.com1"/></h3>
+			<p><fmt:message key="jsp.home.com2"/></p>
+			<div class="list-group">
 <%
-	boolean showLogos = ConfigurationManager.getBooleanProperty("jspui.home-page.logos", true);
-    for (int i = 0; i < communities.length; i++)
-    {
-%><div class="list-group-item row">
+				boolean showLogos = ConfigurationManager.getBooleanProperty("jspui.home-page.logos", true);
+			    for (int i = 0; i < communities.length; i++)
+	    		{
+%>
+					<div class="list-group-item">
 <%  
-		Bitstream logo = communities[i].getLogo();
-		if (showLogos && logo != null) { %>
-	<div class="col-md-3">
-        <img alt="Logo" class="img-responsive" src="<%= request.getContextPath() %>/retrieve/<%= logo.getID() %>" /> 
-	</div>
-	<div class="col-md-9">
-<% } else { %>
-	<div class="col-md-12">
-<% }  %>		
-		<h4 class="list-group-item-heading"><a href="<%= request.getContextPath() %>/handle/<%= communities[i].getHandle() %>"><%= communities[i].getMetadata("name") %></a>
+						Bitstream logo = communities[i].getLogo();
+						if (showLogos && logo != null) { %>
+							<div>
 <%
-        if (ConfigurationManager.getBooleanProperty("webui.strengths.show"))
-        {
+						} else {
 %>
-		<span class="badge pull-right"><%= ic.getCount(communities[i]) %></span>
+							<div>
 <%
-        }
+						}
+%>		
+						<h4 class="list-group-item-heading"><a href="<%= request.getContextPath() %>/handle/<%= communities[i].getHandle() %>"><%= communities[i].getMetadata("name") %></a>
+<%
+					        if (ConfigurationManager.getBooleanProperty("webui.strengths.show"))
+					        {
+%>
+								<span class="badge pull-right"><%= ic.getCount(communities[i]) %></span>
+<%
+    	    				}
 
 %>
-		</h4>
-		<p><%= communities[i].getMetadata("short_description") %></p>
-    </div>
-</div>                            
+						</h4>
+						<p><%= communities[i].getMetadata("short_description") %></p>
+    					</div>
+					</div>                            
 <%
-    }
+    			}
 %>
-	</div>
-	</div>
+			</div>
+		</div>
 <%
 }
 %>
 	<%
-    	int discovery_panel_cols = 8;
-    	int discovery_facet_cols = 4;
+    	int discovery_panel_cols = 3;
+    	int discovery_facet_cols = 3;
     %>
 	<%@ include file="discovery/static-sidebar-facet.jsp" %>
-</div>
+	</div>
 
-<div class="row">
-	<%@ include file="discovery/static-tagcloud-facet.jsp" %>
-</div>
+	<div class="row">
+		<%@ include file="discovery/static-tagcloud-facet.jsp" %>
+	</div>
 	
-</div>
+	</div>
 </dspace:layout>

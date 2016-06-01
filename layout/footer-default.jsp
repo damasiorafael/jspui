@@ -38,5 +38,6 @@
 </div>
 </main>
             <%-- Page footer --%>
+
     </body>
 </html>
