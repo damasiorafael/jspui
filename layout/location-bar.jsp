@@ -25,7 +25,8 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
   
 <%@ page import="java.util.List" %>
-<ol class="breadcrumb btn-success">
+<ol class="breadcrumb">
+  <div class="container">
 <%
     List parentTitles = (List) request.getAttribute("dspace.layout.parenttitles");
     List parentLinks = (List) request.getAttribute("dspace.layout.parentlinks");
@@ -58,3 +59,4 @@
 }
 %>
 </ol>
+</div>
