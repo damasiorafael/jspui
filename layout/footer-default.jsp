@@ -38,6 +38,7 @@
 </div>
 </main>
             <%-- Page footer --%>
+			<%= /*
              <footer>
              <div id="designedby" class="container text-muted">
              <fmt:message key="jsp.layout.footer-default.theme-by"/> <a href="http://www.cineca.it"><img
@@ -50,5 +51,6 @@
                                 </div>
 			</div>
     </footer>
+	*/ %>
     </body>
 </html>
